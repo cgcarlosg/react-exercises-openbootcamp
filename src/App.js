@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import ContactListComponent from './components/pure/container/contact_list';
-
+//import GreetingStyled from './components/pure/pure/greetingStyled';
+import Clock from './hooks/Ejercicio456'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <ContactListComponent></ContactListComponent>
+        <Clock></Clock>
       </header>
     </div>
   );

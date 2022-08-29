@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../../../styles/contactos.scss';
 
 
-const ContactComponent = ({contacto}) => {
+const ContactComponent = ({contacto, changeEstatus, remove}) => {
 
     useEffect(() => {
         console.log('Contacto creado');
@@ -14,21 +14,44 @@ const ContactComponent = ({contacto}) => {
         };
     }, [contacto]);
 
+
     return (
-        <div>
-            <h1> Nombre contacto: {contacto.nombre} </h1>
-            <h2 className="contacto-nombre"> Apellido contacto: {contacto.apellido} </h2>
-            <h3> Email contato: {contacto.email} </h3>
-            <h4> 
-              Este contacto esta: {contacto.estatus ? 'Contacto En Linea' : 'Contacto No Disponible' }
-            </h4>
-        </div>
+        <tr className='fw-normal'>
+            <th>
+                <span className='ms-2'>{contacto.nombre}</span>
+            </th>
+       <td className='align-middle'>
+         <span>{contacto.apellido} </span>
+       </td>
+       <td className='align-middle'>
+         <span>{contacto.email} </span>
+       </td>
+
+       <td className='align-middle'>
+       { contacto.estatus ? 
+        <i onClick={()=>changeEstatus(contacto)} 
+            class="bi bi-alarm-fill mx-2 contact-action" 
+            style={{ fontSize: 20, color:'green' }}>true</i> : 
+        <i onClick={()=>changeEstatus(contacto)} 
+                class="bi bi-alarm-fill mx-2 contact-action" 
+                style={{ fontSize: 22, color:'red' }}>false
+                    {contacto.estatus}
+            </i>
+            }
+    
+            <i onClick={()=>remove(contacto)} class="bi-trash mx-3 contact-action" style={{ fontSize: 20, color:'tomato' }}></i>
+       </td>
+      
+        </tr>
+        
     );
 };
 
 
 ContactComponent.propTypes = {
-    contacto: PropTypes.instanceOf(Contacto)
+    contacto: PropTypes.instanceOf(Contacto),
+    changeEstatus: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
 };
 
 

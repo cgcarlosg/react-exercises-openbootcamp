@@ -3,6 +3,10 @@
     color: cadetblue;
 }
 
-h1 {
-    color: cyan;
+span, h5, h6, h4, h3, h2, h1 {
+    color: black;
+}
+
+.contact-action {
+    cursor: pointer;    
 }

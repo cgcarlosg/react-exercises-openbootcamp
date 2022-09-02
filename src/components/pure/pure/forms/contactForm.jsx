@@ -7,7 +7,6 @@ function ContactForm({add}) {
   const nameRef = useRef('');
   const apellidoRef = useRef('');
   const emailRef = useRef('');
-  const estatusRef = useRef('')
 
  function addContacto(e) {
       e.preventDefault();

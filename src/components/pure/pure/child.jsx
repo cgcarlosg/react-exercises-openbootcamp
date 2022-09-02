@@ -24,7 +24,7 @@ const Child = ({name, send, update}) => {
             <button onClick={pressButton}>Boton 1</button>
             <button onClick={()=>pressButtonParams('hello')}>Boton 2</button>
             <input placeholder = 'Send a text ro your father' 
-                   onFocus={()=>console.log('Input Focuse')}
+                   onFocus={()=>console.log('Input Focused')}
                    onChange={(e)=>console.log('Input changed:', e.target.value)}
                     onCopy={()=>console.log('copied text from input')}
                     ref = {messageRef}
